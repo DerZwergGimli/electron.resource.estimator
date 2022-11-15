@@ -6,8 +6,7 @@ import { customStart, loadViteEnv } from 'vite-electron-plugin/plugin'
 import renderer from 'vite-plugin-electron-renderer'
 // @ts-ignore
 import pkg from './package.json'
-// @ts-ignore
-import Unocss from 'unocss/vite'
+
 
 rmSync('dist-electron', { recursive: true, force: true })
 
@@ -15,7 +14,7 @@ rmSync('dist-electron', { recursive: true, force: true })
 export default defineConfig({
   plugins: [
     vue(),
-    Unocss({ /* options */ }),
+
     electron({
       include: ['electron'],
       transformOptions: {
