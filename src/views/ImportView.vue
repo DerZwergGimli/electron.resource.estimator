@@ -12,10 +12,9 @@
 
 <script setup lang="ts">
 import { createToast } from 'mosha-vue-toastify'
-import { appStorage } from '../store/AppStorage'
+import { useAppStorage } from '../store/AppStorage'
 
-const storage = appStorage()
-storage.init()
+const storage = useAppStorage()
 
 function evt_uploadFile(event: any) {
   console.info('Loading uploaded file...')

@@ -7,10 +7,10 @@ import { SystemRecommendationEnums } from '../store/types/enums'
 import { useStorage } from '@vueuse/core'
 import { uuid } from 'vue-uuid'
 
-export const appStorage = defineStore({
+export const useAppStorage = defineStore({
   id: 'app_storage',
   state: () => ({
-    initalized: useStorage('data_initalized', false),
+    initialized: false,
     hostsList: useStorage('hostsList', [] as Host[]),
     vmsList: useStorage('vmsList', [] as VM[]),
     assignmentsList: useStorage('assignmentsList', [] as Assignment[]),
@@ -20,12 +20,7 @@ export const appStorage = defineStore({
 
   actions: {
     async init() {
-      if (!this.initalized) {
-        // if (
-        ///   !this.hostsList.length ||
-        //   !this.vmsList.length ||
-        //   !this.assignmentsList.length
-        // ) {
+      if (!this.initialized) {
         console.info('Initializing AppStore!')
         //Fetch default_data.json
         await fetch('default/default_data.json')
@@ -56,6 +51,8 @@ export const appStorage = defineStore({
             console.error(error)
           })
         this.initalized = true
+      } else {
+        console.info('Store is already initialized')
       }
     },
     make_assignment(host_uuid: string, vm_uuid: string) {

@@ -11,6 +11,41 @@ const routes: Array<RouteRecordRaw> = [
     name: 'import',
     component: () => import('./views/ImportView.vue'),
   },
+  {
+    path: '/export',
+    name: 'export',
+    component: () => import('./views/ExportView.vue'),
+  },
+  {
+    path: '/host',
+    name: 'host',
+    component: () => import('./views/HostView.vue'),
+  },
+  {
+    path: '/vm',
+    name: 'vm',
+    component: () => import('./views/VMView.vue'),
+  },
+  {
+    path: '/printout',
+    name: 'printout',
+    component: () => import('./views/ExportView.vue'),
+  },
+  {
+    path: '/assignment',
+    name: 'assignment',
+    component: () => import('./views/AssignmentView.vue'),
+  },
+  {
+    path: '/overview',
+    name: 'overview',
+    component: () => import('./views/ExportView.vue'),
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('./views/ExportView.vue'),
+  },
 ]
 
 const router = createRouter({
