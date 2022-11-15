@@ -7,9 +7,27 @@
           <th>ID</th>
           <th>Name</th>
           <th>Manufacturer</th>
-          <th>CPU <i class="bi bi-cpu"></i></th>
-          <th>RAM <i class="bi bi-memory"></i></th>
-          <th>Storage <i class="bi bi-device-hdd"></i></th>
+          <th>
+            <div class="flex flex-row space-x-1 items-center">
+              <p>CPU</p>
+              <icon-cpu />
+            </div>
+          </th>
+
+          <th>
+            <div class="flex flex-row space-x-1 items-center">
+              <p>RAM</p>
+              <icon-ram />
+            </div>
+          </th>
+
+          <th>
+            <div class="flex flex-row space-x-1 items-center">
+              <p>Storage</p>
+              <icon-hdd />
+            </div>
+          </th>
+
           <th>RAID</th>
           <th>Amount</th>
           <th></th>
@@ -43,8 +61,8 @@
               @changed_first="(value) => (host.cpu.sockets = parseInt(value))"
               @changed_second="(value) => (host.cpu.cores = parseInt(value))"
             ></HostResources>
-            <div class="flex flex-row space-x-2">
-              <i class="bi bi-calculator"></i>
+            <div class="flex flex-row space-x-2 items-center">
+              <icon-calculator />
               <p class="text-sm pt-1">
                 {{ host.cpu.sockets * host.cpu.cores * 2 }} vCores
               </p>
@@ -58,8 +76,8 @@
               @changed_first="(value) => (host.ram.slots = parseInt(value))"
               @changed_second="(value) => (host.ram.size = parseInt(value))"
             ></HostResources>
-            <div class="flex flex-row space-x-2">
-              <i class="bi bi-calculator"></i>
+            <div class="flex flex-row space-x-2 items-center">
+              <icon-calculator />
               <p class="text-sm pt-1">
                 {{ host.ram.slots * host.ram.size }} vRAM [GB]
               </p>
@@ -75,8 +93,8 @@
               "
               @changed_second="(value) => (host.storage.size = parseInt(value))"
             ></HostResources>
-            <div class="flex flex-row space-x-2">
-              <i class="bi bi-calculator"></i>
+            <div class="flex flex-row space-x-2 items-center">
+              <icon-calculator />
               <p class="text-sm pt-1">
                 Netto Storage =
                 {{
@@ -103,8 +121,8 @@
                 {{ raid }}
               </option>
             </select>
-            <div class="flex flex-row space-x-1">
-              <i class="bi bi-calculator"></i>
+            <div class="flex flex-row space-x-1 items-center">
+              <icon-calculator />
               <p class="text-sm pt-1">
                 {{
                   caluclate_raid(
@@ -135,10 +153,12 @@
             />
           </th>
           <th>
-            <i
-              class="btn btn-sm bi bi-trash"
+            <button
+              class="btn btn-sm"
               @click="$emit('clk_remove_item', host.uuids)"
-            ></i>
+            >
+              <icon-trash />
+            </button>
           </th>
         </tr>
       </tbody>
@@ -157,6 +177,11 @@ import {
 import { RAIDEnums } from '../../store/types/enums'
 import HostResources from '../../components/table/table_elements/HostResources.vue'
 import { useAppStorage } from '../../store/AppStorage'
+import IconCpu from '../icons/IconCpu.vue'
+import IconRam from '../icons/IconRam.vue'
+import IconHdd from '../icons/IconHdd.vue'
+import IconTrash from '../icons/IconTrash.vue'
+import IconCalculator from '../icons/IconCalculator.vue'
 const store = useAppStorage()
 store.init()
 

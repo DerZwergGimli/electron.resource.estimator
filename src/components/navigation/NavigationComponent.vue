@@ -1,8 +1,7 @@
 <template>
-  <div class="navbar bg-base-100 shadow-2xl">
+  <div class="navbar">
     <div class="flex-1">
-      <a
-        class="btn btn-ghost normal-case text-xl bg-primary text-primary-content"
+      <a class="btn btn-ghost normal-case text-xl"
         >Resource Capacity Estimator</a
       >
     </div>
@@ -17,7 +16,14 @@
         <li><router-link to="/overview">Overview</router-link></li>
         <li><router-link to="/printout">Print</router-link></li>
         <li><router-link to="/about">About</router-link></li>
+        <li><switch-theme /></li>
       </ul>
     </div>
   </div>
 </template>
+<script>
+import SwitchTheme from '~/components/button/SwitchTheme.vue'
+export default {
+  components: { SwitchTheme },
+}
+</script>

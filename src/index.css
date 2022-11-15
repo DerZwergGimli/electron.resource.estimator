@@ -1,3 +1,12 @@
-h1 {
-  @apply text-3xl;
+.navbar {
+  @apply bg-gray-200 dark:bg-gray-800 text-black dark:text-white;
+}
+
+.base-content {
+  @apply bg-gray-200 dark:bg-gray-800 text-black dark:text-white;
+}
+
+.base-headline {
+  @apply bg-gray-300 dark:bg-gray-700 text-black dark:text-white;
+  @apply text-3xl grid m-4 h-20 rounded-box place-items-center;
 }

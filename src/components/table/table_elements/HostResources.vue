@@ -1,17 +1,11 @@
 <template>
   <div class="space-y-1 form-control">
     <label class="input-group input-group-xs">
-      <span class="w-14"
-        ><i
-          :class="
-            type === 'cpu'
-              ? 'bi bi-cpu'
-              : type === 'ram'
-              ? 'bi bi-memory'
-              : 'bi bi-device-hdd'
-          "
-        ></i
-      ></span>
+      <span class="w-14">
+        <icon-cpu v-if="type === 'cpu'" />
+        <icon-ram v-if="type === 'ram'" />
+        <icon-hdd v-if="type === 'storage'" />
+      </span>
       <input
         :class="
           'input input-bordered input-xs w-full max-w-xs' +
@@ -22,22 +16,16 @@
         @input="(event) => $emit('changed_first', event.target.value)"
       />
       <span class="w-32">
-        {{ type === "cpu" ? "Sockets" : type === "ram" ? "Slots" : "Slots" }}
+        {{ type === 'cpu' ? 'Sockets' : type === 'ram' ? 'Slots' : 'Slots' }}
       </span>
     </label>
 
     <label class="input-group input-group-xs">
-      <span class="w-14"
-        ><i
-          :class="
-            type === 'cpu'
-              ? 'bi bi-cpu'
-              : type === 'ram'
-              ? 'bi bi-memory'
-              : 'bi bi-device-hdd'
-          "
-        ></i
-      ></span>
+      <span class="w-14">
+        <icon-cpu v-if="type === 'cpu'" />
+        <icon-ram v-if="type === 'ram'" />
+        <icon-hdd v-if="type === 'storage'" />
+      </span>
       <input
         :class="
           'input input-bordered input-xs w-full max-w-xs' +
@@ -48,19 +36,22 @@
         @input="(event) => $emit('changed_second', event.target.value)"
       />
       <span class="w-32">
-        {{ type === "cpu" ? "Cores" : type === "ram" ? "GB" : "GB" }}
+        {{ type === 'cpu' ? 'Cores' : type === 'ram' ? 'GB' : 'GB' }}
       </span>
     </label>
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { defineProps } from 'vue'
+import IconCpu from '../../icons/IconCpu.vue'
+import IconRam from '../../icons/IconRam.vue'
+import IconHdd from '../../icons/IconHdd.vue'
 
 defineProps({
   type: {
     type: String,
-    default: "none",
+    default: 'none',
   },
   first_value: {
     type: Number,
@@ -70,5 +61,5 @@ defineProps({
     type: Number,
     default: 0,
   },
-});
+})
 </script>

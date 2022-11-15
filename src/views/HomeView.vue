@@ -1,8 +1,6 @@
 <template>
   <div class="home flex flex-col">
-    <div class="grid m-4 h-20 card bg-base-300 rounded-box place-items-center">
-      <h1>Home</h1>
-    </div>
+    <div class="base-headline">Home</div>
     <div class="flex flex-row justify-center space-x-2">
       <ul class="basis-1/2 steps steps-vertical">
         <li class="step step-primary">

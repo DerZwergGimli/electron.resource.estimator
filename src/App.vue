@@ -16,5 +16,5 @@ onMounted(async () => {
 
 <template>
   <navigation-component />
-  <router-view></router-view>
+  <router-view class="base-content" />
 </template>
