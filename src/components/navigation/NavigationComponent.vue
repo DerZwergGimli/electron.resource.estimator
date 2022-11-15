@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div class="navigation">
     <div class="flex-1">
       <a class="btn btn-ghost normal-case text-xl"
         >Resource Capacity Estimator</a

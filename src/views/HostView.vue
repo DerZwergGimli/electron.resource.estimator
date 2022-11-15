@@ -1,8 +1,6 @@
 <template>
   <div class="host flex flex-col text-center">
-    <div class="grid m-4 h-20 card bg-base-300 rounded-box place-items-center">
-      <h1>Hosts Configuration</h1>
-    </div>
+    <div class="base-headline">Host setup</div>
     <HostTable
       class="m-4"
       :hosts="store.hostsList"

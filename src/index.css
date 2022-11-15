@@ -1,5 +1,10 @@
-.navbar {
-  @apply bg-gray-200 dark:bg-gray-800 text-black dark:text-white;
+.navigation {
+  @apply flex flex-row bg-gray-200 dark:bg-gray-800 text-black dark:text-white;
+  @apply p-2 border-b-2;
+}
+
+.shadow-item {
+  @apply shadow-md shadow-blue-800;
 }
 
 .base-content {
@@ -8,5 +13,9 @@
 
 .base-headline {
   @apply bg-gray-300 dark:bg-gray-700 text-black dark:text-white;
-  @apply text-3xl grid m-4 h-20 rounded-box place-items-center;
+  @apply text-3xl p-2 text-center;
+}
+
+.table {
+  @apply bg-amber-300;
 }

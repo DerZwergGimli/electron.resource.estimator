@@ -1,10 +1,7 @@
 <template>
   <div class="flex flex-col text-center">
-    <div class="grid m-4 h-20 card bg-base-300 rounded-box place-items-center">
-      <h1>IMPORT</h1>
-    </div>
-    <div class="divider"></div>
-    <div class="flex mx-4 h-24 rounded-box bg-base-300 place-content-center">
+    <div class="base-headline">Import a config file</div>
+    <div class="base-contentr">
       <input class="pt-5" type="file" @change="evt_uploadFile" />
     </div>
   </div>
