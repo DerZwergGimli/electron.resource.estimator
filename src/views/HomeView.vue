@@ -1,7 +1,7 @@
 <template>
   <div class="home flex flex-col">
     <div class="grid m-4 h-20 card bg-base-300 rounded-box place-items-center">
-      <h1 class="">Home</h1>
+      <h1>Home</h1>
     </div>
     <div class="flex flex-row justify-center space-x-2">
       <ul class="basis-1/2 steps steps-vertical">
@@ -18,11 +18,11 @@
           View your Assignments in the Ovewview section
         </li>
       </ul>
-<!--      <img-->
-<!--        class="object-contain w-96 rounded-md shadow-lg"-->
-<!--        src="@/assets/datacenter.jpg"-->
-<!--        alt="server-room-img"-->
-<!--      />-->
+      <!--      <img-->
+      <!--        class="object-contain w-96 rounded-md shadow-lg"-->
+      <!--        src="@/assets/datacenter.jpg"-->
+      <!--        alt="server-room-img"-->
+      <!--      />-->
     </div>
   </div>
 </template>

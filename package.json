@@ -41,7 +41,11 @@
     "vue"
   ],
   "dependencies": {
+    "@vueuse/core": "^8.7.5",
     "daisyui": "^2.40.1",
-    "vue-router": "^4.1.6"
+    "mosha-vue-toastify": "^1.0.23",
+    "pinia": "^2.0.14",
+    "vue-router": "^4.1.6",
+    "vue-uuid": "^3.0.0"
   }
 }

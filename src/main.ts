@@ -2,10 +2,15 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './samples/node-api'
 import './style.css'
-import router from "./router";
+import './index.css'
+import router from './router'
+import { createPinia } from 'pinia'
+
+const pinia = createPinia()
 
 createApp(App)
-    .use(router)
+  .use(router)
+  .use(pinia)
   .mount('#app')
   .$nextTick(() => {
     postMessage({ payload: 'removeLoading' }, '*')
