@@ -2,9 +2,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './samples/node-api'
 import 'uno.css'
-
+import router from "./router";
 
 createApp(App)
+    .use(router)
   .mount('#app')
   .$nextTick(() => {
     postMessage({ payload: 'removeLoading' }, '*')

@@ -36,5 +36,8 @@
     "vite",
     "vue3",
     "vue"
-  ]
+  ],
+  "dependencies": {
+    "vue-router": "^4.1.6"
+  }
 }
