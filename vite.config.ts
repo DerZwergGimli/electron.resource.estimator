@@ -14,7 +14,6 @@ rmSync('dist-electron', { recursive: true, force: true })
 export default defineConfig({
   plugins: [
     vue(),
-
     electron({
       include: ['electron'],
       transformOptions: {
