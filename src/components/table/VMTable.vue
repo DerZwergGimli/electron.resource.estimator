@@ -1,8 +1,9 @@
 <template>
-  <div class="overflow-x-auto">
-    <table class="table w-full table-zebra">
-      <!-- head -->
-      <thead>
+  <div class="overflow-x-auto relative">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+      >
         <tr>
           <th>ID</th>
           <th>Name</th>
@@ -21,7 +22,7 @@
           <th>{{ index }}</th>
           <th>
             <input
-              class="input input-bordered input-xs w-full max-w-xs"
+              class="input-text-field"
               type="text"
               :value="vm.name"
               @input="(event) => (vm.name = event?.target?.value || 0)"
@@ -29,7 +30,7 @@
           </th>
           <th>
             <input
-              class="input input-bordered input-xs w-full max-w-xs"
+              class="input-text-field"
               type="text"
               :value="vm.os"
               @input="(event) => (vm.os = event.target.value)"
@@ -37,7 +38,7 @@
           </th>
           <th>
             <select
-              class="select select-bordered select-xs w-full max-w-xs"
+              class="input-select-box"
               @change="evt_change_preset($event, vm.uuids)"
             >
               <option
@@ -71,34 +72,23 @@
             ></VMResouce>
           </th>
           <th>
-            <div class="flex flex-row">
-              <label class="input-group input-group-xs">
-                <span class="basis-1/4"><i class="bi bi-123"></i></span>
-                <input
-                  :class="
-                    'w-full input input-bordered input-xs' +
-                    (vm.uuids.length == 0 ? ' input-error' : '')
-                  "
-                  type="number"
-                  :value="vm.uuids.length"
-                  @input="
-                    (event) => {
-                      store.check_uuid_length(
-                        vm.name,
-                        parseInt(event.target.value)
-                      )
-                    }
-                  "
-                />
-                <span class="basis-1/4">Total</span>
-              </label>
-            </div>
+            <VMResouce
+              :value="vm.uuids.length"
+              @changed="
+                (value) => {
+                  store.check_uuid_length(vm.name, parseInt(value))
+                }
+              "
+              type="amount"
+            ></VMResouce>
           </th>
           <th>
-            <i
-              class="btn btn-sm bi bi-trash"
+            <button
+              class="btn btn-sm"
               @click="$emit('clk_remove_item', vm.uuids)"
-            ></i>
+            >
+              <icon-trash />
+            </button>
           </th>
         </tr>
       </tbody>
@@ -113,6 +103,7 @@ import { defineProps, PropType } from 'vue'
 import VMResouce from './table_elements/VMResource.vue'
 import { VM } from '../../store/types/VM'
 import { useAppStorage } from '../../store/AppStorage'
+import IconTrash from '../icons/IconTrash.vue'
 
 const store = useAppStorage()
 store.init()

@@ -5,32 +5,32 @@
         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
       >
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Manufacturer</th>
-          <th scope="col">
+          <th>ID</th>
+          <th>Name</th>
+          <th>Manufacturer</th>
+          <th>
             <div class="flex flex-row space-x-1 items-center">
               <p>CPU</p>
               <icon-cpu />
             </div>
           </th>
-          <th scope="col">
+          <th>
             <div class="flex flex-row space-x-1 items-center">
               <p>RAM</p>
               <icon-ram />
             </div>
           </th>
 
-          <th scope="col">
+          <th>
             <div class="flex flex-row space-x-1 items-center">
               <p>Storage</p>
               <icon-hdd />
             </div>
           </th>
 
-          <th scope="col">RAID</th>
-          <th scope="col">Amount</th>
-          <th scope="col"></th>
+          <th>RAID</th>
+          <th>Amount</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -110,10 +110,7 @@
           </td>
           <td>
             <div>
-              <select
-                v-model="host.storage.raid"
-                class="w-28 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              >
+              <select v-model="host.storage.raid" class="input-select-box">
                 <option
                   v-for="raid in Object.values(RAIDEnums)"
                   :key="raid"
