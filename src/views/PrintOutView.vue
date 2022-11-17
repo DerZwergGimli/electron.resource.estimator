@@ -3,7 +3,6 @@ import { useAppStorage } from '../store/AppStorage'
 //import autoTable from 'jspdf-autotable'
 //import html2canvas from 'html2canvas'
 import html2pdf from 'html2pdf.js'
-import { Host } from '../store/types/Host'
 import SimpleTable from '../components/table/SimpleTable.vue'
 
 const store = useAppStorage()
@@ -25,8 +24,6 @@ const vm_table_elements = store.vmsList.map((vm, index) => [
   vm.vstorage.rec + ' GB',
   vm.uuids.length,
 ])
-
-console.log(host_table_elements)
 
 function generatePDF() {
   // fromHTML Method
@@ -212,13 +209,82 @@ function generatePDF() {
           :body="vm_table_elements"
         />
 
-        <div class="html2pdf__page-break pb-20"></div>
+        <div class="html2pdf__page-break"></div>
         <h1 class="text-center text-2xl pb-2">Assignments</h1>
 
-        <simple-table
-          :headers="['', 'Name', 'CPU', 'RAM', 'Storage', 'Amount']"
-          :body="vm_table_elements"
-        />
+        <div
+          class="pt-20 space-y-8"
+          v-for="(assignment, index) in store.assignmentsList"
+          :key="assignment"
+        >
+          <h2 class="text-center text-2xl">
+            {{
+              store.hostsList.find((host) =>
+                host.uuids.some((uuid) => uuid === assignment.host_uuid)
+              ).name +
+              ' [' +
+              index +
+              ']'
+            }}
+          </h2>
+          <div class="flex flex-col space-y-1">
+            <div class="flex flex-row items-center space-x-2">
+              <h3 class="w-20">CPU</h3>
+              <div
+                class="w-full bg-gray-900 rounded-full h-2.5 dark:bg-gray-700"
+              >
+                <div
+                  class="bg-blue-600 h-2.5 rounded-full"
+                  style="width: 45%"
+                ></div>
+              </div>
+            </div>
+            <div class="flex flex-row items-center space-x-2">
+              <h3 class="w-20">RAM</h3>
+              <div
+                class="w-full bg-gray-900 rounded-full h-2.5 dark:bg-gray-700"
+              >
+                <div
+                  class="bg-blue-600 h-2.5 rounded-full"
+                  style="width: 45%"
+                ></div>
+              </div>
+            </div>
+            <div class="flex flex-row items-center space-x-2">
+              <h3 class="w-20">Storage</h3>
+              <div
+                class="w-full bg-gray-900 rounded-full h-2.5 dark:bg-gray-700"
+              >
+                <div
+                  class="bg-blue-600 h-2.5 rounded-full"
+                  style="width: 45%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <simple-table
+            :headers="['', 'Name', 'CPU', 'RAM', 'Storage']"
+            :body="
+              assignment.vm_uuid.map((vm_uuid) => [
+                '',
+                store.vmsList.find((vm) =>
+                  vm.uuids.some((uuid) => uuid === vm_uuid)
+                ).name,
+                store.vmsList.find((vm) =>
+                  vm.uuids.some((uuid) => uuid === vm_uuid)
+                ).vcpu.rec,
+                store.vmsList.find((vm) =>
+                  vm.uuids.some((uuid) => uuid === vm_uuid)
+                ).vram.rec,
+                store.vmsList.find((vm) =>
+                  vm.uuids.some((uuid) => uuid === vm_uuid)
+                ).vstorage.rec,
+              ])
+            "
+          />
+          <div class="html2pdf__page-break pb-20"></div>
+        </div>
       </div>
     </div>
   </div>
