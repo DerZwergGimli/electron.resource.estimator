@@ -1,44 +1,40 @@
 <template>
-  <div class="space-y-1 form-control">
-    <label class="input-group input-group-xs">
-      <span class="w-14">
+  <div class="space-y-1">
+    <div class="input-g flex justify-center">
+      <span class="w-14 flex justify-center">
         <icon-cpu v-if="type === 'cpu'" />
         <icon-ram v-if="type === 'ram'" />
         <icon-hdd v-if="type === 'storage'" />
       </span>
       <input
-        :class="
-          'input input-bordered input-xs w-full max-w-xs' +
-          (first_value == 0 ? ' input-error' : '')
-        "
+        class="input-text-field"
+        :class="second_value == 0 ? ' input-error' : ''"
         type="number"
         :value="first_value"
         @input="(event) => $emit('changed_first', event.target.value)"
       />
-      <span class="w-32">
+      <span class="w-32 flex justify-center">
         {{ type === 'cpu' ? 'Sockets' : type === 'ram' ? 'Slots' : 'Slots' }}
       </span>
-    </label>
+    </div>
 
-    <label class="input-group input-group-xs">
-      <span class="w-14">
+    <div class="input-g">
+      <span class="w-14 flex justify-center">
         <icon-cpu v-if="type === 'cpu'" />
         <icon-ram v-if="type === 'ram'" />
         <icon-hdd v-if="type === 'storage'" />
       </span>
       <input
-        :class="
-          'input input-bordered input-xs w-full max-w-xs' +
-          (second_value == 0 ? ' input-error' : '')
-        "
+        class="input-text-field"
+        :class="second_value == 0 ? ' input-error' : ''"
         type="number"
         :value="second_value"
         @input="(event) => $emit('changed_second', event.target.value)"
       />
-      <span class="w-32">
+      <span class="w-32 flex justify-center">
         {{ type === 'cpu' ? 'Cores' : type === 'ram' ? 'GB' : 'GB' }}
       </span>
-    </label>
+    </div>
   </div>
 </template>
 

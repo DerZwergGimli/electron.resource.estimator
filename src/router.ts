@@ -37,9 +37,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('./views/AssignmentView.vue'),
   },
   {
-    path: '/overview',
-    name: 'overview',
-    component: () => import('./views/ExportView.vue'),
+    path: '/printout',
+    name: 'printout',
+    component: () => import('./views/PrintOutView.vue'),
   },
   {
     path: '/about',

@@ -1,8 +1,7 @@
 <template>
-  <div class="flex flex-col text-center">
-    <div class="grid m-4 h-20 card bg-base-300 rounded-box place-items-center">
-      <h1>VM Configuration</h1>
-    </div>
+  <div class="host flex flex-col text-center">
+    <div class="base-headline">VM setup</div>
+    <div class="divider"></div>
     <VMTable
       class="m-4"
       :vms="store.vmsList"

@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@iconify/vue": "^4.0.0",
+    "@types/jspdf": "^2.0.0",
     "@vitejs/plugin-vue": "^3.1.2",
     "autoprefixer": "^10.4.13",
     "electron": "^21.1.0",
@@ -42,14 +43,21 @@
     "vue"
   ],
   "dependencies": {
+    "@react-pdf/renderer": "^3.0.1",
+    "@vitejs/plugin-react": "^2.2.0",
     "@vueuse/core": "^9.5.0",
     "daisyui": "^2.40.1",
     "downloadjs": "^1.4.7",
     "flowbite": "^1.5.4",
+    "html2pdf.js": "^0.9.3",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.25",
+    "jspdf-html2canvas": "^1.4.9",
     "mosha-vue-toastify": "^1.0.23",
     "pinia": "^2.0.23",
     "vue-json-pretty": "^2.1.0",
     "vue-router": "^4.1.6",
-    "vue-uuid": "^3.0.0"
+    "vue-uuid": "^3.0.0",
+    "vue3-html2pdf": "^1.1.2"
   }
 }

@@ -7,6 +7,7 @@ import { customStart, loadViteEnv } from 'vite-electron-plugin/plugin'
 import renderer from 'vite-plugin-electron-renderer'
 // @ts-ignore
 import pkg from './package.json'
+import react from '@vitejs/plugin-react'
 
 rmSync('dist-electron', { recursive: true, force: true })
 
@@ -20,6 +21,7 @@ export default defineConfig({
 
   plugins: [
     vue(),
+    react(),
     electron({
       include: ['electron'],
       transformOptions: {

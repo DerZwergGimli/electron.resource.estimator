@@ -10,7 +10,7 @@ import { uuid } from 'vue-uuid'
 export const useAppStorage = defineStore({
   id: 'app_storage',
   state: () => ({
-    initialized: false,
+    initialized: useStorage('initialized', false),
     hostsList: useStorage('hostsList', [] as Host[]),
     vmsList: useStorage('vmsList', [] as VM[]),
     assignmentsList: useStorage('assignmentsList', [] as Assignment[]),
@@ -50,7 +50,7 @@ export const useAppStorage = defineStore({
           .catch((error) => {
             console.error(error)
           })
-        this.initalized = true
+        this.initialized = true
       } else {
         console.info('Store is already initialized')
       }

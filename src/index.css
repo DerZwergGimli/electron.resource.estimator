@@ -13,9 +13,27 @@
 
 .base-headline {
   @apply bg-gray-300 dark:bg-gray-700 text-black dark:text-white;
-  @apply text-3xl p-2 text-center;
+  @apply text-3xl p-2 text-center rounded-b-3xl;
+  @apply shadow-md shadow-blue-800;
 }
 
-.table {
-  @apply bg-amber-300;
+tr {
+  @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700;
+}
+
+th {
+  @apply py-4 px-6;
+}
+
+td {
+  @apply py-4 px-6;
+}
+
+.input-g {
+  @apply flex flex-row items-center bg-gray-100  rounded-lg;
+  @apply dark:bg-gray-700;
+}
+.input-text-field {
+  @apply input-xs w-full max-w-xs w-full max-w-xs;
+  @apply text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
 }

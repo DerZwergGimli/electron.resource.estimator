@@ -1,6 +1,7 @@
 <template>
   <div class="host flex flex-col text-center">
     <div class="base-headline">Host setup</div>
+    <div class="divider"></div>
     <HostTable
       class="m-4"
       :hosts="store.hostsList"
@@ -22,8 +23,6 @@ import { RAIDEnums } from '../store/types/enums'
 import { TOAST_SUCCESS, TOAST_WARNING } from '../extra/toast-config'
 
 const store = useAppStorage()
-
-store.init()
 
 defineComponent({ HostTable })
 

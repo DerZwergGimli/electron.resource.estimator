@@ -1,59 +1,59 @@
 <template>
-  <div class="overflow-x-auto">
-    <table class="table w-full table-zebra">
-      <!-- head -->
-      <thead>
+  <div class="overflow-x-auto relative">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+      >
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Manufacturer</th>
-          <th>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Manufacturer</th>
+          <th scope="col">
             <div class="flex flex-row space-x-1 items-center">
               <p>CPU</p>
               <icon-cpu />
             </div>
           </th>
-
-          <th>
+          <th scope="col">
             <div class="flex flex-row space-x-1 items-center">
               <p>RAM</p>
               <icon-ram />
             </div>
           </th>
 
-          <th>
+          <th scope="col">
             <div class="flex flex-row space-x-1 items-center">
               <p>Storage</p>
               <icon-hdd />
             </div>
           </th>
 
-          <th>RAID</th>
-          <th>Amount</th>
-          <th></th>
+          <th scope="col">RAID</th>
+          <th scope="col">Amount</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <!-- body -->
         <tr v-for="(host, index) in hosts" :key="index">
-          <th>{{ index }}</th>
-          <th>
+          <th scope="row">{{ index }}</th>
+          <td>
             <input
-              class="input input-bordered input-xs w-full max-w-xs"
+              class="input-text-field"
               type="text"
               :value="host.name"
               @input="(event) => (host.name = event.target.value)"
             />
-          </th>
-          <th>
+          </td>
+          <td>
             <input
-              class="input input-bordered input-xs w-full max-w-xs"
+              class="input-text-field w-full max-w-xs"
               type="text"
               :value="host.manufacturer"
               @input="(event) => (host.manufacturer = event.target.value)"
             />
-          </th>
-          <th>
+          </td>
+          <td>
             <HostResources
               :first_value="host.cpu.sockets"
               :second_value="host.cpu.cores"
@@ -67,8 +67,8 @@
                 {{ host.cpu.sockets * host.cpu.cores * 2 }} vCores
               </p>
             </div>
-          </th>
-          <th>
+          </td>
+          <td>
             <HostResources
               :first_value="host.ram.slots"
               :second_value="host.ram.size"
@@ -82,8 +82,8 @@
                 {{ host.ram.slots * host.ram.size }} vRAM [GB]
               </p>
             </div>
-          </th>
-          <th>
+          </td>
+          <td>
             <HostResources
               :first_value="host.storage.amount"
               :second_value="host.storage.size"
@@ -107,39 +107,42 @@
                 GB
               </p>
             </div>
-          </th>
-          <th>
-            <select
-              v-model="host.storage.raid"
-              class="select select-bordered select-xs max-w-xs"
-            >
-              <option
-                v-for="raid in Object.values(RAIDEnums)"
-                :key="raid"
-                :selected="host.storage.raid === raid"
+          </td>
+          <td>
+            <div>
+              <select
+                v-model="host.storage.raid"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
-                {{ raid }}
-              </option>
-            </select>
-            <div class="flex flex-row space-x-1 items-center">
-              <icon-calculator />
-              <p class="text-sm pt-1">
-                {{
-                  caluclate_raid(
-                    host.storage.amount,
-                    host.storage.size,
-                    host.storage.raid,
-                    1
-                  )
-                }}
-                GB
-              </p>
-            </div>
-          </th>
+                <option
+                  v-for="raid in Object.values(RAIDEnums)"
+                  :key="raid"
+                  :selected="host.storage.raid === raid"
+                >
+                  {{ raid }}
+                </option>
+              </select>
 
-          <th>
+              <div class="flex flex-row space-x-1 items-center">
+                <icon-calculator />
+                <p class="text-sm pt-1">
+                  {{
+                    caluclate_raid(
+                      host.storage.amount,
+                      host.storage.size,
+                      host.storage.raid,
+                      1
+                    )
+                  }}
+                  GB
+                </p>
+              </div>
+            </div>
+          </td>
+
+          <td>
             <input
-              class="input input-bordered input-xs w-full max-w-xs"
+              class="input-text-field"
               type="number"
               :value="host.uuids.length"
               @input="
@@ -151,15 +154,15 @@
                 }
               "
             />
-          </th>
-          <th>
+          </td>
+          <td>
             <button
               class="btn btn-sm"
               @click="$emit('clk_remove_item', host.uuids)"
             >
               <icon-trash />
             </button>
-          </th>
+          </td>
         </tr>
       </tbody>
     </table>

@@ -17,15 +17,16 @@
       <i class="bi bi-device-hdd"></i>
     </div>
     <button v-if="show_button" @click="$emit('clk_remove')" class="btn btn-xs">
-      <i class="bi bi-trash"></i>
+      <icon-trash />
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineProps, PropType } from "vue";
-import { VM } from "@/store/types/VM";
-import { SystemRecommendationEnums } from "@/store/types/enums";
+import { defineProps, PropType } from 'vue'
+import { VM } from '~/store/types/VM'
+import { SystemRecommendationEnums } from '~/store/types/enums'
+import IconTrash from '../icons/IconTrash.vue'
 
 defineProps({
   show_button: {
@@ -38,15 +39,15 @@ defineProps({
   },
   system_recommendation: {
     type: String as PropType<SystemRecommendationEnums>,
-    default: "rec",
+    default: 'rec',
   },
-});
+})
 </script>
 
 <script lang="ts">
 export default {
-  name: "AssignmentVMElement",
-};
+  name: 'AssignmentVMElement',
+}
 </script>
 
 <style scoped></style>

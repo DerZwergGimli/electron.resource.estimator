@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col text-center">
-    <div class="base-headline">Import a config file</div>
+    <div class="base-headline">Import config file</div>
+    <div class="divider"></div>
     <div class="base-contentr">
       <input class="pt-5" type="file" @change="evt_uploadFile" />
     </div>

@@ -1,6 +1,7 @@
 <template>
   <div class="home flex flex-col">
     <div class="base-headline">Home</div>
+    <div class="divider"></div>
     <div class="flex flex-row justify-center space-x-2">
       <ul class="basis-1/2 steps steps-vertical">
         <li class="step step-primary">
