@@ -24,8 +24,8 @@
 
 <script setup lang="ts">
 import { defineProps, PropType } from 'vue'
-import { VM } from '~/store/types/VM'
-import { SystemRecommendationEnums } from '~/store/types/enums'
+import { VM } from '../../store/types/VM'
+import { SystemRecommendationEnums } from '../../store/types/enums'
 import IconTrash from '../icons/IconTrash.vue'
 
 defineProps({

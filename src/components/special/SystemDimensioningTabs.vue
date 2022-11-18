@@ -16,13 +16,13 @@
 </template>
 
 <script setup lang="ts">
-import { appStorage } from "@/store/AppStorage";
-import { SystemRecommendationEnums } from "@/store/types/enums";
-const storage = appStorage();
+import { useAppStorage } from '../../store/AppStorage'
+import { SystemRecommendationEnums } from '../../store/types/enums'
+const storage = useAppStorage()
 
 function clk_selectSystemDimensions(
   system_recommendation: SystemRecommendationEnums
 ) {
-  storage.system_recommendation = system_recommendation;
+  storage.system_recommendation = system_recommendation
 }
 </script>

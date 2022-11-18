@@ -18,17 +18,19 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
-  headers: {
-    default: ['a', 'b', 'c'],
-  },
-  body: {
-    default: [
-      ['1', '2', '3'],
-      ['11', '22', '33'],
-    ],
-  },
-})
+// const props = defineProps({
+//   headers: {
+//     default: ['a', 'b', 'c'],
+//   },
+//   body: {
+//     default: [
+//       ['1', '2', '3'],
+//       ['11', '22', '33'],
+//     ],
+//   },
+// })
+
+const props = defineProps(['headers', 'body'])
 </script>
 
 <style scoped>

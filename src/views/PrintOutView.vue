@@ -215,13 +215,13 @@ function generatePDF() {
         <div
           class="pt-20 space-y-8"
           v-for="(assignment, index) in store.assignmentsList"
-          :key="assignment"
+          :key="index"
         >
           <h2 class="text-center text-2xl">
             {{
               store.hostsList.find((host) =>
                 host.uuids.some((uuid) => uuid === assignment.host_uuid)
-              ).name +
+              )?.name +
               ' [' +
               index +
               ']'
@@ -270,16 +270,16 @@ function generatePDF() {
                 '',
                 store.vmsList.find((vm) =>
                   vm.uuids.some((uuid) => uuid === vm_uuid)
-                ).name,
+                )?.name ?? 'error',
                 store.vmsList.find((vm) =>
                   vm.uuids.some((uuid) => uuid === vm_uuid)
-                ).vcpu.rec,
+                )?.vcpu.rec ?? '-1',
                 store.vmsList.find((vm) =>
                   vm.uuids.some((uuid) => uuid === vm_uuid)
-                ).vram.rec,
+                )?.vram.rec ?? '-1',
                 store.vmsList.find((vm) =>
                   vm.uuids.some((uuid) => uuid === vm_uuid)
-                ).vstorage.rec,
+                )?.vstorage.rec ?? '-1',
               ])
             "
           />

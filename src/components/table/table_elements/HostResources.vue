@@ -11,7 +11,7 @@
         :class="second_value == 0 ? ' input-error' : ''"
         type="number"
         :value="first_value"
-        @input="(event) => $emit('changed_first', event.target.value)"
+        @input="(event: any) => $emit('changed_first', event.target.value)"
       />
       <span class="w-32 flex justify-center">
         {{ type === 'cpu' ? 'Sockets' : type === 'ram' ? 'Slots' : 'Slots' }}
@@ -29,7 +29,7 @@
         :class="second_value == 0 ? ' input-error' : ''"
         type="number"
         :value="second_value"
-        @input="(event) => $emit('changed_second', event.target.value)"
+        @input="(event:any) => $emit('changed_second', event.target.value)"
       />
       <span class="w-32 flex justify-center">
         {{ type === 'cpu' ? 'Cores' : type === 'ram' ? 'GB' : 'GB' }}

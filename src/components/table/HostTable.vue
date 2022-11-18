@@ -42,7 +42,7 @@
               class="input-text-field"
               type="text"
               :value="host.name"
-              @input="(event) => (host.name = event.target.value)"
+              @input="(event:any) => (host.name = event.target.value)"
             />
           </td>
           <td>
@@ -50,7 +50,7 @@
               class="input-text-field w-full max-w-xs"
               type="text"
               :value="host.manufacturer"
-              @input="(event) => (host.manufacturer = event.target.value)"
+              @input="(event:any) => (host.manufacturer = event.target.value)"
             />
           </td>
           <td>
@@ -143,7 +143,7 @@
               type="number"
               :value="host.uuids.length"
               @input="
-                (event) => {
+                (event: any) => {
                   store.check_uuid_length(
                     host.name,
                     parseInt(event.target.value)

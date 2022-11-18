@@ -13,7 +13,7 @@
         placeholder="Type here"
         :class="value == 0 ? ' input-error' : ''"
         :value="value"
-        @input="(event) => $emit('changed', event.target.value)"
+        @input="(event: any) => $emit('changed', event.target.value)"
       />
       <span class="w-32 flex justify-center">
         {{ type === 'cpu' ? 'Cores' : type === 'amount' ? '#' : 'GB' }}

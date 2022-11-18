@@ -9,10 +9,10 @@
           'input input-bordered input-xs' + (min == 0 ? ' input-error' : '')
         "
         :value="min"
-        @input="(event) => $emit('changed_min', event.target.value)"
+        @input="(event:any) => $emit('changed_min', event.target.value)"
       />
       <span class="">
-        {{ type === "cpu" ? "Cores" : "GB" }}
+        {{ type === 'cpu' ? 'Cores' : 'GB' }}
       </span>
     </label>
 
@@ -25,10 +25,10 @@
           'input input-bordered input-xs' + (rec == 0 ? ' input-error' : '')
         "
         :value="rec"
-        @input="(event) => $emit('changed_rec', event.target.value)"
+        @input="(event: any) => $emit('changed_rec', event.target.value)"
       />
       <span>
-        {{ type === "cpu" ? "Cores" : "GB" }}
+        {{ type === 'cpu' ? 'Cores' : 'GB' }}
       </span>
     </label>
 
@@ -41,22 +41,22 @@
           'input input-bordered input-xs' + (max == 0 ? ' input-error' : '')
         "
         :value="max"
-        @input="(event) => $emit('changed_max', event.target.value)"
+        @input="(event: any) => $emit('changed_max', event.target.value)"
       />
       <span class="">
-        {{ type === "cpu" ? "Cores" : "GB" }}
+        {{ type === 'cpu' ? 'Cores' : 'GB' }}
       </span>
     </label>
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { defineProps } from 'vue'
 
 defineProps({
   type: {
     type: String,
-    default: "none",
+    default: 'none',
   },
   min: {
     type: Number,
@@ -70,11 +70,11 @@ defineProps({
     type: Number,
     default: 0,
   },
-});
+})
 </script>
 
 <script lang="ts">
 export default {
-  name: "VMResources",
-};
+  name: 'VMResources',
+}
 </script>

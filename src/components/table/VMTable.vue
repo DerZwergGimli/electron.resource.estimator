@@ -25,7 +25,7 @@
               class="input-text-field"
               type="text"
               :value="vm.name"
-              @input="(event) => (vm.name = event?.target?.value || 0)"
+              @input="(event: any) => (vm.name = event.target.value )"
             />
           </th>
           <th>
@@ -33,7 +33,7 @@
               class="input-text-field"
               type="text"
               :value="vm.os"
-              @input="(event) => (vm.os = event.target.value)"
+              @input="(event: any) => (vm.os = event.target.value)"
             />
           </th>
           <th>

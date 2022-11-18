@@ -4,9 +4,9 @@
     <div class="collapse-title bg-base-200">
       <div class="underline text-2xl">
         {{
-          storage.hostsList.find((host) =>
+          storage.hostsList.find((host: any) =>
             host.uuids.includes(assignment?.host_uuid)
-          ).name
+          )?.name
         }}
       </div>
       <div
@@ -67,13 +67,13 @@
             <td>
               {{
                 storage.vmsList.find((vm) => vm.uuids.includes(vm_uuid))
-                  ?.name ?? "error"
+                  ?.name ?? 'error'
               }}
             </td>
             <td class="text-right">
               {{
                 storage.vmsList.find((vm) => vm.uuids.includes(vm_uuid))?.vcpu[
-                  storage.system_recommendation ?? "error"
+                  storage.system_recommendation ?? 'error'
                 ]
               }}
               Cores
@@ -81,7 +81,7 @@
             <td class="text-right">
               {{
                 storage.vmsList.find((vm) => vm.uuids.includes(vm_uuid))?.vram[
-                  storage.system_recommendation ?? "error"
+                  storage.system_recommendation ?? 'error'
                 ]
               }}
               GB
@@ -89,7 +89,7 @@
             <td class="text-right">
               {{
                 storage.vmsList.find((vm) => vm.uuids.includes(vm_uuid))
-                  ?.vstorage[storage.system_recommendation] ?? "error"
+                  ?.vstorage[storage.system_recommendation] ?? 'error'
               }}
               GB
             </td>
@@ -101,37 +101,37 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, PropType } from "vue";
-import { Assignment } from "@/store/types/Assignment";
-import { appStorage } from "@/store/AppStorage";
-import GaugeChart from "../charts/GaugeChart.vue";
+import { defineProps, PropType } from 'vue'
+import { Assignment } from '../../store/types/Assignment'
+import { useAppStorage } from '../../store/AppStorage'
+import GaugeChart from '../charts/GaugeChart.vue'
 import {
   find_host_CPU_total,
   find_host_RAM_total,
   find_host_Storage_total,
-} from "@/extra/finder";
-import { get_used_resouce } from "@/extra/calculator";
+} from '../../extra/finder'
+import { get_used_resouce } from '../../extra/calculator'
 
 import {
   VirtualHardwareEnums,
   SystemRecommendationEnums,
-} from "@/store/types/enums";
+} from '../../store/types/enums'
 
-const storage = appStorage();
-storage.init();
+const storage = useAppStorage()
+storage.init()
 
 defineProps({
   assignment: {
     type: Object as PropType<Assignment>,
     default: undefined,
   },
-});
+})
 </script>
 
 <script lang="ts">
 export default {
-  name: "OverviewCard.vue",
-};
+  name: 'OverviewCard.vue',
+}
 </script>
 
 <style scoped></style>
