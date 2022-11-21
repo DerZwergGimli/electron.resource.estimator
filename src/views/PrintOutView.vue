@@ -55,14 +55,15 @@ function generatePDF() {
     return [
       index,
       host.name,
-      host.cpu.cores * host.cpu.sockets,
-      host.ram.size * host.ram.slots,
-      host.storage.size * host.storage.amount,
+      host.cpu.cores * host.cpu.sockets + ' Cores',
+      host.ram.size * host.ram.slots + ' GB',
+      host.storage.size * host.storage.amount + ' GB',
+      host.uuids.length,
     ]
   })
 
   autoTable(doc, {
-    head: [['ID', 'Name', 'CPU', 'RAM', 'Storage']],
+    head: [['ID', 'Name', 'CPU', 'RAM', 'Storage', 'Amount']],
     body: body_hosts,
   })
   //endregion
@@ -117,6 +118,7 @@ function generatePDF() {
     ]
 
     autoTable(doc, {
+      theme: 'plain',
       head: [['sockets', 'cores', 'slots', 'size', 'amount', 'size']],
       body: body_assignments,
     })
