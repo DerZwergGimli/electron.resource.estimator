@@ -107,12 +107,12 @@ function generatePDF() {
 
     const body_assignments = [
       [
-        current_host?.cpu.sockets.toString(),
-        current_host?.cpu.cores.toString(),
-        current_host?.ram.slots.toString(),
-        current_host?.ram.size.toString(),
-        current_host?.storage.amount.toString(),
-        current_host?.storage.size.toString(),
+        current_host?.cpu.sockets.toString() ?? 'error',
+        current_host?.cpu.cores.toString() ?? 'error',
+        current_host?.ram.slots.toString() ?? 'error',
+        current_host?.ram.size.toString() ?? 'error',
+        current_host?.storage.amount.toString() ?? 'error',
+        current_host?.storage.size.toString() ?? 'error',
       ],
     ]
 
